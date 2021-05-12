@@ -6,9 +6,7 @@ const logger = require("morgan");
 const compression = require("compression");
 const helmet = require("helmet");
 const mongoose = require("mongoose");
-const dev_db_url =
-  "mongodb+srv://omar:8gdA9LSFCufTzqg@cluster0.6y2hj.mongodb.net/myFirstDatabase?retryWrites=true&w=majority";
-const mongoDB = process.env.MONGODB_URI || dev_db_url;
+const mongoDB = process.env.MONGODB_URI;
 mongoose.connect(mongoDB, {
   useNewUrlParser: true,
   useUnifiedTopology: true,

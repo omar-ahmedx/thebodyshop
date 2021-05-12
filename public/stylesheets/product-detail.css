@@ -1,0 +1,250 @@
+:root {
+  --left: 0;
+  --width: 0;
+}
+h2 {
+  margin: 0 0 40px 0;
+}
+main {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.product-container {
+  flex-direction: row;
+  justify-content: space-between;
+  margin: 0 auto;
+  margin-bottom: 10px;
+  height: auto;
+}
+.product-container > div {
+  flex-basis: 47%;
+}
+.imgs-container span {
+  position: absolute;
+  right: 0;
+  font-size: 12px;
+  line-height: 14px;
+  font-weight: 900;
+  padding: 4px 6px 3px;
+  background: #333333;
+  color: #ffffff;
+  z-index: 9999;
+}
+.BS {
+  right: 0;
+  z-index: 99999;
+}
+.imgs-container {
+  position: relative;
+  display: flex;
+  height: 490px;
+  overflow: hidden;
+}
+.main-img {
+  display: block;
+  overflow: hidden;
+  max-height: 100%;
+  max-width: 100%;
+}
+.main-img img {
+  max-height: 100%;
+  max-width: 100%;
+  z-index: 1 !important;
+}
+.imgs-slick {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  margin-right: 25px;
+  width: max-content !important;
+}
+.imgs-slick a {
+  display: block;
+  width: 100% !important;
+  margin-bottom: 10px;
+}
+.imgs-slick img {
+  display: block;
+  width: 100%;
+  height: auto;
+  z-index: 1;
+}
+.imgs-slick .slick-list {
+  padding: 0 !important;
+  width: 71px;
+  overflow: hidden;
+}
+.imgs-slick .slick-track {
+  width: 71px !important;
+}
+/*---Product Main Info ---*/
+.main-info-container {
+  text-align: left;
+}
+.buying-container button {
+  font-size: 13px;
+  letter-spacing: 0.04em;
+  padding: 5px 20px 4px;
+  line-height: 33px;
+  font-weight: 900;
+  border: none;
+  outline: none;
+  background: #212b36;
+  color: #ffffff;
+  width: 100%;
+  margin: 20px 0 40px 0;
+}
+.num-to-buy {
+  display: flex;
+  align-items: center;
+}
+.num-to-buy span {
+  display: inline-block;
+  font-size: 27px;
+  line-height: 1em;
+  cursor: pointer;
+  width: 50px;
+  height: 50px;
+  text-align: center;
+  color: #212b36;
+  border: 2px solid #212b36;
+}
+.num-to-buy span svg {
+  height: 100%;
+  width: 16px;
+}
+.num-to-buy input {
+  color: #212b36;
+  display: block;
+  width: 50px;
+  height: 50px;
+  font-size: 24px;
+  line-height: 1em;
+  text-align: center;
+  outline: none;
+  font-weight: 900;
+  border: 2px solid #212b36;
+}
+.buy-controler {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  min-width: 160px;
+  max-width: 160px;
+}
+.price-container {
+  justify-content: start;
+  margin-left: 10px;
+}
+.price-container p {
+  font-size: 24px;
+  line-height: 40px;
+}
+.new-price {
+  margin-left: 10px;
+}
+@media only screen and (min-width: 769px) {
+  .slick-arrow {
+    top: 330px;
+    height: 30px;
+    width: 30px;
+    overflow: hidden;
+  }
+  .slick-next {
+    transform: rotate(90deg);
+    right: 7px;
+  }
+  .slick-prev {
+    transform: rotate(90deg);
+    left: auto;
+    left: 7px;
+  }
+}
+/*--- Sub Info ---*/
+.tab-content {
+  display: none;
+  max-height: 0;
+  transition: max-height 0.6s linear 0s;
+}
+
+.active {
+  display: block;
+}
+.active-content {
+  display: block;
+}
+.subInfo-container {
+  width: 100%;
+}
+.tab-container {
+  border-bottom: 1px solid #f7f8fa;
+  margin-bottom: 20px;
+}
+ul {
+  position: relative;
+  list-style: none;
+  margin: 0 auto;
+}
+.pd-title {
+  display: none;
+}
+.tab-content {
+  overflow: hidden;
+}
+.pt-tabs-border {
+  position: absolute;
+  width: var(--width);
+  left: var(--left);
+  bottom: 0;
+  border-bottom: solid 2px #000000;
+  transition: all 0.2s linear;
+}
+@media only screen and (max-width: 1025px) {
+  .container {
+    width: 98%;
+  }
+  .tab-container {
+    display: none;
+  }
+  .pd-title {
+    display: block;
+    border-bottom: 1px solid #f7f8fa;
+  }
+}
+ul li {
+  display: inline-block;
+}
+.tab {
+  font-size: 18px;
+  padding: 10px 0 14px;
+  line-height: 28px;
+  font-weight: 800;
+  cursor: pointer;
+  margin-right: 15px;
+}
+.tab-content-container {
+  margin: 0 auto;
+}
+@media only screen and (max-width: 768px) {
+  .product-container {
+    flex-direction: column;
+  }
+  h2 {
+    margin-top: 20px;
+  }
+  .imgs-slick {
+    display: none;
+  }
+  .slick-arrow {
+    z-index: 9999;
+    top: 40%;
+  }
+  .slick-prev {
+    left: 10px;
+  }
+  .slick-next {
+    right: 10px;
+  }
+}

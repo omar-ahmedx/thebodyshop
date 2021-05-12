@@ -1,0 +1,27 @@
+extends layout
+block style 
+  link(rel="stylesheet", href="/stylesheets/categories.css")
+block content 
+  main
+    each val in category 
+      div(class="info-container")
+        h2=val.name 
+        p=val.description
+      div(class="products-container")
+        each product in category_products 
+          div(class='product-container')
+            div(class="img-container")
+              if(product.num_in_stock == 0)
+                span(class="sold-out") SOLD OUT
+              else if(product.bestselling)
+                img(src="/images/BS.webp" class="BS")
+              a(href=`${val.name}`+"/" + product._id)
+                img(src=product.img[0] class="default-imgs")
+            div.pd-container
+              a(ref=`:id/${product._id}` class="product-name")= product.name
+              div(class="price-container")
+                if(product.old_price)
+                  p(class="old-price") EGP #{product.old_price}
+                p(class="new-price") EGP #{product.price}
+              if(product.num_in_stock > 0)
+                button(class="add-cart") ADD TO CART

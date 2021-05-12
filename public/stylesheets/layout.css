@@ -1,0 +1,365 @@
+html,
+body,
+* {
+  font-family: sans-serif;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body {
+  font-size: 2em;
+  color: #333333;
+  overflow-x: hidden;
+}
+.container {
+  width: 1200px;
+}
+@media only screen and (max-width: 1250px) {
+  .container {
+    width: 90%;
+  }
+}
+h2 {
+  font-size: 1.5rem;
+  margin: 70px 0 50px 0;
+  font-family: "Open Sans Condensed", sans-serif;
+}
+h3 {
+  font-size: 1.3rem;
+  line-height: 2.5rem;
+  margin-bottom: 30px;
+  font-family: "Open Sans Condensed", sans-serif;
+}
+p {
+  font-family: "Open Sans", sans-serif;
+  font-size: 14px;
+  line-height: 2rem;
+}
+a {
+  text-decoration: none;
+  color: #333333;
+}
+.full-screen-bg {
+  display: none;
+  cursor: pointer;
+  background-color: rgba(0, 0, 0, 0.55);
+  position: fixed;
+  top: 0;
+  left: 0;
+  overflow: hidden;
+  width: 100%;
+  height: 100%;
+  z-index: 21;
+}
+/*--- Header ---*/
+.header-desktop-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 40px 0;
+}
+.nav-container {
+  display: flex;
+}
+.nav-container a span::before,
+.nav-container-st a span::before {
+  content: "";
+  display: block;
+  width: 0;
+  height: 2px;
+  position: absolute;
+  bottom: 5px;
+  margin: auto;
+  left: 0;
+  right: 0;
+  background-color: black;
+  transition: width 0.2s linear;
+}
+.nav-container a:hover span::before,
+.nav-container-st a:hover span::before {
+  width: 100%;
+}
+.navBar-sticky {
+  width: 100%;
+  position: fixed;
+  top: -100%;
+  box-shadow: 0 0px 8px rgba(0, 0, 0, 0.1);
+  background-color: white;
+  z-index: 20;
+  opacity: 0;
+  transition: opacity 0.2s ease-out;
+}
+.sticky {
+  top: 0;
+  opacity: 1;
+}
+.header-desktop-st {
+  display: block;
+  width: 100%;
+}
+.desktop-nav-st {
+  display: flex;
+  margin: 0 auto;
+  justify-content: center;
+  align-items: center;
+}
+.nav-container-st {
+  display: flex;
+  flex-wrap: wrap;
+}
+.nav-container a,
+.nav-container-st a {
+  position: relative;
+  margin: 0 10px;
+  font-size: 0.8rem;
+  line-height: 2.8rem;
+  font-weight: bold;
+}
+.header-container-mobile,
+.header-mobile-st {
+  display: none;
+  align-items: center;
+  top: 0;
+  width: 100%;
+  padding: 0 20px;
+  background-color: white;
+}
+
+.header-mobile-st {
+  display: none;
+}
+.open-btn svg {
+  width: 24px;
+}
+.header-container-mobile .nav-image,
+.header-mobile-st .nav-image {
+  margin: 0 auto;
+}
+.side-nav {
+  display: none;
+}
+@media only screen and (max-width: 1000px) {
+  .header-desktop-container,
+  .header-desktop-st {
+    display: none;
+  }
+  .header-mobile-st {
+    width: 100%;
+    display: flex;
+  }
+  .header-container-mobile {
+    display: flex;
+  }
+  .open-btn,
+  #close-btn {
+    cursor: pointer;
+  }
+  .side-nav {
+    display: none;
+    flex-direction: column;
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    width: 315px;
+    background-color: white;
+    box-shadow: 0 0px 8px rgba(0, 0, 0, 0.1);
+    transform: translate3d(-100%, 0, 0);
+    z-index: 22;
+    transition: transform 300ms ease-out;
+  }
+  .open {
+    display: block;
+    overflow-y: hidden;
+  }
+  .side-nav.open-side-nav {
+    transform: translate3d(0, 0, 0);
+  }
+  .side-nav a {
+    padding: 13px 20px 13px 20px;
+    font-size: 18px;
+    line-height: 22px;
+    letter-spacing: 0.04em;
+    font-weight: 900;
+  }
+  #close-btn {
+    margin: 30px 0 20px 0;
+    color: #777777;
+    letter-spacing: normal;
+    font-weight: 500;
+    font-size: 16px;
+  }
+}
+/*---Product ---*/
+.product-container {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  text-align: center;
+}
+.BS {
+  top: 0;
+  position: absolute;
+  max-width: 70px;
+}
+.product-container a {
+  display: block;
+  margin: 0 auto;
+  font-size: 14px;
+}
+.pd-container {
+  width: 100%;
+}
+.pd-container a {
+  height: 46px;
+}
+.pd-container a:hover {
+  text-decoration: underline;
+}
+.img-container {
+  height: fit-content;
+}
+.img-container span {
+  position: absolute;
+  left: 0;
+  font-size: 12px;
+  line-height: 14px;
+  font-weight: 900;
+  padding: 4px 6px 3px;
+  background: #333333;
+  color: #ffffff;
+}
+.default-imgs {
+  width: 100%;
+  height: 300px;
+  object-fit: contain;
+  display: inline-block;
+}
+.slick-arrow {
+  position: absolute;
+  cursor: pointer;
+  background-color: transparent;
+  color: transparent;
+  border: none;
+  width: 20px;
+  height: 30px;
+  top: 25%;
+  z-index: 1;
+}
+.slick-prev {
+  left: 0;
+}
+.slick-prev::before {
+  content: "<";
+  font-size: 25px;
+  color: #d0d0d0;
+}
+.slick-next {
+  right: 0;
+}
+.slick-next::before {
+  content: ">";
+  color: #d0d0d0;
+  font-size: 25px;
+}
+.price-container {
+  cursor: default;
+  margin: 15px auto;
+}
+.price-container p {
+  display: inline-block;
+  font-size: 18px;
+  color: #21554f;
+}
+.old-price {
+  text-decoration: line-through;
+}
+.new-price {
+  margin-left: 7px;
+  font-weight: bold;
+}
+.add-cart {
+  width: 64%;
+  background: #212b36;
+  color: #ffffff;
+  padding: 10px 20px;
+  border: none;
+  outline: none;
+}
+@media (max-width: 270px) {
+  .add-cart {
+    width: 100%;
+  }
+}
+
+/*--- Footer ---*/
+footer {
+  margin-top: 50px;
+  padding: 100px 0;
+  background-color: #f7f7f7;
+}
+.footer-container {
+  display: flex;
+  padding: 0 15px;
+  margin: 0 auto;
+  font-size: 1.2rem;
+}
+.footer-container > div {
+  flex-basis: 0;
+  flex-grow: 1;
+  padding: 0 15px;
+}
+h4 {
+  margin-bottom: 15px;
+  transition: color 300ms linear 0s;
+}
+
+h4 i {
+  display: none;
+}
+footer a {
+  display: block;
+  margin: 8px 0;
+  color: #777777;
+  font-size: 1rem;
+  transition: color 0.2s linear;
+}
+footer a:hover {
+  color: #333333;
+}
+
+@media only screen and (max-width: 790px) {
+  .footer-container {
+    flex-direction: column;
+  }
+  h4 {
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    margin: 10px 0;
+    padding: 10px 0;
+  }
+  h4:hover {
+    color: #43bba5;
+  }
+  h4 i {
+    display: inline;
+    transition: transform 0.6s linear 0s;
+    float: right;
+  }
+  footer a {
+    margin: 20px 0;
+  }
+  .f-content {
+    display: none;
+    max-height: 0;
+    overflow-y: hidden;
+    transition: max-height 0.6s linear 0s;
+  }
+  .show-footer-content {
+    max-height: 250px;
+  }
+  .active i {
+    transform: rotate(-45deg);
+  }
+}

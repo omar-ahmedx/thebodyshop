@@ -1,0 +1,82 @@
+extends layout
+block style 
+  link(rel="stylesheet", href="/stylesheets/index.css")
+block content
+  main
+    div(class="content-container")
+      div(class="pic-container")
+        img(src="/images/default.webp", alt="get glowing")
+
+      div(class="images-row")
+        div 
+          a(href="#") 
+            img(src="/images/first-in-row.webp", alt="need gifting inspiration")
+        div 
+          a(href="#") 
+            img(src="/images/sec-in-row.webp", alt="need gifting inspiration")
+        div 
+          a(href="#") 
+            img(src="/images/third-in-row.webp", alt="need gifting inspiration")
+            
+      div(class="bestselling")
+        h2 Our Bestselling Online Offers
+        
+        div(class="main-container")
+          each product in face_products 
+            div
+              div(class='product-container')
+                div(class="img-container")
+                  if(product.num_in_stock == 0)
+                    span(class="sold-out") SOLD OUT
+                  else if(product.bestselling)
+                    img(src="/images/BS.webp" class="BS")
+                  a(href=`/best-online-offers/${product._id}`)
+                    img(src=product.img[0] class="default-imgs")
+                div.pd-container
+                  a(href=`/best-online-offers/${product._id}` class="product-name")= product.name
+                  div(class="price-container")
+                    if(product.old_price)
+                      p(class="old-price") EGP #{product.old_price}
+                    p(class="new-price") EGP #{product.price}
+                  if(product.num_in_stock > 0)
+                    button(class="add-cart") ADD TO CART
+
+        
+      div(class="bestsellers")
+        h2 OUR BESTSELLERS 
+        
+        div(class="main-container")
+          each product in face_products 
+            if(product.bestselling)
+              div
+                div(class='product-container')
+                  div(class="img-container")
+                    if(product.num_in_stock == 0)
+                      span(class="sold-out") SOLD OUT
+                    else if(product.bestselling)
+                      img(src="/images/BS.webp" class="BS")
+                    a(href=`/best-online-offers/${product._id}`)
+                      img(src=product.img[0] class="default-imgs")
+                  div.pd-container
+                    a(href=`/best-online-offers/${product._id}` class="product-name")= product.name
+                    div(class="price-container")
+                      if(product.old_price)
+                        p(class="old-price") EGP #{product.old_price}
+                      p(class="new-price") EGP #{product.price}
+                    if(product.num_in_stock > 0)
+                      button(class="add-cart")  ADD TO CART
+
+
+      div(class="stories first-story")
+        img(src="/images/india.webp", alt="An indian woman")
+        div
+          h3 COMMUNITY TRADE RECYCLED PLASTIC
+          p At The Body Shop, we’re committed to tackling the plastic crisis differently. Discover how we’re fighting for people and the planet with Community Trade recycled plastic from Bengaluru, India.
+
+      div(class="stories sec-story")
+        img(src="/images/rabbits.webp", alt="Rabbits")
+        div 
+          h3 FOREVER AGAINST ANIMAL TESTING
+          p WE DID IT! Thanks to your support, we've gathered 8 million signatures for our campaign to end animal testing in cosmetics forever. The petition has now closed, so we're on our way to the United Nations with all your signatures. Find out how we're going to wipe it for good.
+
+  

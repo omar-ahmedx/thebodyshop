@@ -1,0 +1,136 @@
+doctype html
+html
+  head
+    meta(charset='utf-8')
+    meta(name='viewport', content='width=device-width, initial-scale=1')
+    title= title
+    link(rel='stylesheet', href='/stylesheets/layout.css')
+    link(rel="shortcut icon" href="/images/favicon.webp")
+    
+    block style
+  body
+    div(class='header-desktop-container')
+      div(class="nav-image")
+        a(href="/")
+          img( src="/images/navigation-img.webp", alt="logo")
+
+      div(class='nav-container')
+        a(href="/categories/Face") 
+          span FACE 
+        a(href="/categories/Body") 
+          span BODY 
+        a(href="#") 
+          span HAIR
+        a(href="#") 
+          span MAKE-UP
+        a(href="#") 
+          span FRAGRANCES
+        a(href="#") 
+          span GIFTS
+        a(href="#") 
+          span HANDS
+        a(href="#") 
+          span RANGE
+        a(href="#") 
+          span TRENDING
+        a(href="#") 
+          span ABOUT US
+
+    div(class='header-container-mobile')
+      div(class="open-btn")
+        svg(version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 24 24" xml:space="preserve")
+          g
+            rect(y="5.2"  fill="currentColor" width="24" height="1.6")
+            rect(y="11.2" fill="currentColor" width="16" height="1.6")
+            rect(y="17.2" fill="currentColor" width="24" height="1.6")
+      div(class="nav-image")
+        a(href="/")
+          img( src="/images/nav-img-mobile.webp", alt="logo")
+
+    
+    div(class="navBar-sticky")
+      div(class="header-desktop-st")
+        div(class="desktop-nav-st container")
+          div(class="nav-image")
+            a(href="/")
+              img( src="/images/navigation-img.webp", alt="logo")
+
+          div(class='nav-container-st')
+            a(href="/categories/Face") 
+              span FACE 
+            a(href="/categories/Body") 
+              span BODY 
+            a(href="/categories/hair") 
+              span HAIR
+            a(href="/categories/make-up") 
+              span MAKE-UP
+            a(href="#") 
+              span FRAGRANCES
+            a(href="#") 
+              span GIFTS
+            a(href="#") 
+              span HANDS
+            a(href="#") 
+              span RANGE
+            a(href="#") 
+              span TRENDING
+            a(href="#") 
+              span ABOUT US
+      div(class='header-mobile-st')
+        div(class="open-btn")
+          svg(version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 24 24" xml:space="preserve")
+            g
+              rect(y="5.2"  fill="currentColor" width="24" height="1.6")
+              rect(y="11.2" fill="currentColor" width="16" height="1.6")
+              rect(y="17.2" fill="currentColor" width="24" height="1.6")
+        div(class="nav-image")
+          a(href="/")
+            img( src="/images/nav-img-mobile.webp", alt="logo")
+
+    div(class='side-nav')
+      a(id="close-btn") X Close
+      a(href="/categories/Face") FACE 
+      a(href="/categories/Body") BODY 
+      a(href="/categories/hair") HAIR
+      a(href="/categories/make-up") MAKE-UP
+      a(href="#") FRAGRANCES
+      a(href="#") GIFTS
+      a(href="#") HANDS
+      a(href="#") RANGE
+      a(href="#") TRENDING
+      a(href="#") ABOUT US
+    block content
+
+    footer
+      div(class="footer-container container")
+        div
+          h4(class="ft-header" data-number="1") ABOUT US 
+            i(class="f-icon" data-number="1") +
+          div(class="f-content about-us" data-number="1")
+            a(href="#") Our Heritage
+            a(href="#") Against Animal Testing
+            a(href="#") Growing Community Trade
+            a(href="#") Bio Bridges
+            a(href="#") Community Trade Recycled plastics
+        div
+          h4(class="ft-header" data-number="2") SUPPORT 
+            i(class="f-icon" data-number="2") +
+          div(class="f-content support" data-number="2")
+            a(href="#") Delivery Information
+            a(href="#") Contact Us
+            a(href="#") Returns & Refunds
+        div
+          h4(class="ft-header" data-number="3") POLICY 
+            i(class="f-icon" data-number="3") +
+          div(class="f-content policy" data-number="3")
+            a(href="#") Privacy Policy
+            a(href="#") Terms & Conditions of Sale
+            a(href="#") Website Terms & Conditions
+    div(class="full-screen-bg")
+
+    script(src="//code.jquery.com/jquery-1.11.0.min.js")
+    script(src="//code.jquery.com/jquery-migrate-1.2.1.min.js")
+    script(src="/slick/slick.min.js") 
+    script(src="/javascripts/main.js")
+    block script 
+      

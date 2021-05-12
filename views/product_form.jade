@@ -1,0 +1,58 @@
+html
+  head
+    meta(charset='utf-8')
+    meta(name='viewport', content='width=device-width, initial-scale=1')
+    block style 
+      link(rel="stylesheet", href="/stylesheets/admin.css")
+    title= title
+  body 
+    form(action="", method="post") 
+      div.form-group
+        lable(for="default-img") Default Image: 
+        input#default-img.form-control(type="file" name="default-img" required="true" value="")
+        if(product)
+          img(src=product.img[0])
+        lable(for="more-imgs") Additional Images: 
+        input#more-imgs.form-control(type="file" name="more-imgs" multiple value="")
+        if(product)
+          div.imgs-container
+            each img, key in product.img 
+              if(key !== 0)
+                img(src=img)
+        lable(for="name") Product Name: 
+        input(type="text", name="name" required="true" value=(undefined === product?"": product.name))
+
+        lable(for="description") Product Description: 
+        input(type="text", name="description" required="true" value=(undefined === product?"": product.description))
+        
+        lable(for="category") Product Category: 
+        select(type="text", name="category" required="true")
+          for categoryName in categories 
+            if(product)
+              option(value=categoryName.name selected=(product.category === categoryName.name)? "selected": false ) #{categoryName.name}
+            else
+              option(value=categoryName.name) #{categoryName.name}
+        
+        lable(for="price") Product Price: 
+        input(type="number",  required="true" name="price" value=(undefined === product?"": product.price))
+        
+        lable(for="old_price") Product Old Price:
+        input(type="number", name="old_price" value=(undefined === product?"": product.old_price))
+
+        lable(for="num_in_stock") Product Number In Stock: 
+        input(type="number", name="num_in_stock" required="true" value=(undefined === product?"": product.num_in_stock))
+
+        lable(for="how_to_use") How to use: 
+        textarea(name="how_to_use", cols="30", rows="10") #{(undefined === product?"": product.how_to_use)}
+        
+        lable(for="features") Features: 
+        textarea(name="features", cols="30", rows="10") #{(undefined === product?"": product.features)}
+
+        lable(for="ingredients") Ingredients: 
+        textarea(name="ingredients", cols="30", rows="10") #{(undefined === product?"": product.ingredients)}  
+
+        lable Bestselling:
+          input(type="checkbox", name="bestselling" id="bestselling" checked=(undefined === product?false: product.bestselling))
+
+        lable online:
+          input(type="checkbox", name="online" id="online" value=(undefined === product?false: product.online))

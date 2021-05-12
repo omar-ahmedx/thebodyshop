@@ -1,0 +1,23 @@
+html
+  head
+    meta(charset='utf-8')
+    meta(name='viewport', content='width=device-width, initial-scale=1')
+    block style 
+      link(rel="stylesheet", href="/stylesheets/admin.css")
+    title= title
+  body
+    each val in products 
+      div(class="product-container")
+        img(src=val.img[0])
+        div
+          p 
+            strong Name: 
+            |#{val.name} 
+          p 
+            strong Category: 
+            |#{val.category}
+        div
+          a(href=val._id class="delete")  Delete 
+          a(href="admin/"+val._id+"/update" class="update")  Update
+    
+    a(href="admin/create" class="add")  Add

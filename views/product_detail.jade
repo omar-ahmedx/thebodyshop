@@ -1,0 +1,87 @@
+extends layout
+block style 
+  link(rel="stylesheet", href="/stylesheets/product-detail.css")
+block content 
+  main
+      div(class="product-container container") 
+        div(class="imgs-container")
+          if(product.num_in_stock == 0)
+            span(class="sold-out") SOLD OUT
+          else if(product.bestselling)
+            img(src="/images/BS.webp" class="BS")
+          if(product.img.length > 1)
+            div(class="imgs-slick")
+              each img in product.img
+                a(href="#") 
+                  img(src=img)
+          div(class="main-img")
+            each img in product.img
+              img(src=img)
+        
+        div(class="main-info-container")
+          h2=product.name 
+          div(class="buying-container")
+            div(class="num-to-buy")
+              div(class="buy-controler")
+                span(class="decrease")
+                  svg(xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16")
+                    g
+                      rect(y="7.2" fill="currentColor" width="16" height="1.6")
+                input(type="text" value="1" size=product.num_in_stock)
+                span(class="increase")
+                  svg(xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16")
+                    g 
+                      polygon(fill="currentColor" points="8.8,16 7.2,16 7.2,8.8 0,8.8 0,7.2 7.2,7.2 7.2,0 8.8,0 8.8,7.2 16,7.2 16,8.8 8.8,8.8")
+              div(class="price-container")
+                if(product.old_price)
+                  p(class="old-price") EGP #{product.old_price}
+                p(class="new-price") EGP #{product.price}
+            button ADD TO CART
+          p=product.description
+      
+      div(class="subInfo-container")
+        div(class="tab-container")
+          ul(class="container")
+            if(product.how_to_use)
+              li 
+                span
+                  div(class="tab" data-number="1") HOW TO USE
+            if(product.features)      
+              li 
+                span 
+                  div(class="tab" data-number="2") FEATURES
+            if(product.ingredients)      
+              li 
+                span 
+                  div(class="tab" data-number="3") INGREDIENTS
+            li 
+              span 
+                div(class="tab" data-number="4") DELIVERY & RETURNS
+            div(class="pt-tabs-border")
+        div(class="container tab-content-container")
+          if(product.how_to_use)
+            div(class="pd-title tab" data-number="1") HOW TO USE
+            div(class="tab-content" data-number="1")
+              p=product.how_to_use
+          if(product.features)
+            div(class="pd-title tab" data-number="2") FEATURES
+            div(class="tab-content" data-number="2")
+              p
+                each feature, key in product.features
+                  if(key === 0)
+                    • #{feature}
+                  else
+                    <br> • #{feature}
+          if(product.ingredients)
+            div(class="pd-title tab" data-number="3") INGREDIENTS            
+            div(class="tab-content" data-number="3")
+              p=product.ingredients
+          div(class="pd-title tab" data-number="4") DELIVERY & RETURNS
+          div(class="tab-content" data-number="4")
+            p  Delivery is within 7 working days.<br />
+                |We're sorry, but we DO NOT currently deliver to the Upper Egypt and Red Sea areas. <br />
+                |For everyone’s safety we do not accept cash on delivery, payment must be made online before your order is sent. Our delivery is FREE for orders over EGP 1,000 - A delivery charge of EGP 50 will be applied for orders below EGP 1,000.<br />
+
+                |If you change your mind, or there is a fault with your item, you can return it to any The Body Shop store in Egypt within 14 days for an exchange or refund, provided you bring the receipt and the item is in it’s original, unused condition. For more details, see our Returns & Refunds section.
+block script 
+  script(src="/javascripts/productDetail.js") 

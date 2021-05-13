@@ -140,6 +140,9 @@ a {
 .header-mobile-st .nav-image {
   margin: 0 auto;
 }
+.logo {
+  width: 70%;
+}
 .side-nav {
   display: none;
 }

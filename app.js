@@ -32,7 +32,7 @@ app.use(
   "/slick",
   express.static(__dirname + "/node_modules/slick-carousel/slick")
 );
-
+app.use("/jquery", express.static(__dirname + "/node_modules/jquery/dist"));
 app.use("/", indexRouter);
 app.use("/users", usersRouter);
 

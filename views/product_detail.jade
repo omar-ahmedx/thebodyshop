@@ -14,10 +14,13 @@ block content
               each img in product.img
                 a(href="#") 
                   img(src=img)
-          div(class="main-img")
-            each img in product.img
-              img(src=img)
-        
+            div(class="main-img")
+              each img in product.img
+                img(src=img)
+          else 
+            div(class="only-img")
+              each img in product.img
+                img(src=img)        
         div(class="main-info-container")
           h2=product.name 
           div(class="buying-container")

@@ -30,11 +30,11 @@ main {
   padding: 4px 6px 3px;
   background: #333333;
   color: #ffffff;
-  z-index: 9999;
+  z-index: 10;
 }
 .BS {
   right: 0;
-  z-index: 99999;
+  z-index: 10;
 }
 .imgs-container {
   position: relative;
@@ -43,15 +43,21 @@ main {
   overflow: hidden;
 }
 .main-img {
-  display: block;
+  overflow: hidden;
+  width: 100%;
+}
+.main-img img {
+  width: 100%;
+  z-index: 1 !important;
+}
+.only-img {
   overflow: hidden;
   max-height: 100%;
   max-width: 100%;
 }
-.main-img img {
+.only-img img {
   max-height: 100%;
   max-width: 100%;
-  z-index: 1 !important;
 }
 .imgs-slick {
   position: relative;
@@ -238,7 +244,7 @@ ul li {
     display: none;
   }
   .slick-arrow {
-    z-index: 9999;
+    z-index: 10;
     top: 40%;
   }
   .slick-prev {
